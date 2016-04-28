@@ -1,21 +1,30 @@
 module Zendesk
   class Client
-    attr_accessor :username, :password
+    attr_accessor :username, :password, :endpoint
 
     def initialize(options = {})
-      options.each { |key, value| instance_variable_set "@#{key}", value }
-      yield self if block_given?
+      if block_given?
+        yield self
+      else
+        config    = yaml_configuration.merge(options)
+        @username = config[:username]
+        @password = config[:password]
+        @endpoint = config[:endpoint]
+      end
     end
 
-    def credentials
-      {
-        username: username,
-        password: password
-      }
+    private
+
+    def yaml_configuration
+      File.exist?('config.yml') ? YAML.load(File.read('config.yml')) : {}
     end
 
-    def credentials?
-      credentials.values.all?
+    def connection
+      @connection ||= Faraday.new(url: endpoint) do |builder|
+        builder.use Faraday::Request::BasicAuthentication, username, password
+        builder.use Faraday::Response::Logger
+        builder.adapter Faraday.default_adapter
+      end
     end
   end
 end

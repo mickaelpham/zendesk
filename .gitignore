@@ -8,4 +8,4 @@
 /spec/reports/
 /tmp/
 .irb_history
-/config/zendesk.yml
+config.yml
