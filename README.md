@@ -1,6 +1,7 @@
 # Zendesk
+[![Build Status][0]][1]
 
-A Ruby interface for [Zendesk][0].
+A Ruby interface for [Zendesk][2].
 
 ### Installation
 
@@ -31,7 +32,7 @@ prompt that will allow you to experiment.
 To install this gem onto your local machine, run `bundle exec rake install`. To
 release a new version, update the version number in `version.rb`, and then run
 `bundle exec rake release`, which will create a git tag for the version, push
-git commits and tags, and push the `.gem` file to [rubygems.org][1].
+git commits and tags, and push the `.gem` file to [rubygems.org][3].
 
 ### Contributing
 
@@ -40,8 +41,10 @@ https://github.com/mickaelpham/zendesk.
 
 ### License
 
-The gem is available as open source under the terms of the [MIT License][2].
+The gem is available as open source under the terms of the [MIT License][4].
 
-[0]: https://www.zendesk.com
-[1]: https://rubygems.org
-[2]: http://opensource.org/licenses/MIT
+[0]: https://travis-ci.org/mickaelpham/zendesk.svg?branch=master
+[1]: https://travis-ci.org/mickaelpham/zendesk
+[2]: https://www.zendesk.com
+[3]: https://rubygems.org
+[4]: http://opensource.org/licenses/MIT
