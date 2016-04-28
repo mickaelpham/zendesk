@@ -1,5 +1,3 @@
 require 'zendesk/version'
 
-module Zendesk
-  # Your code goes here...
-end
+require 'zendesk/client'

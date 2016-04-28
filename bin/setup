@@ -6,3 +6,4 @@ set -vx
 bundle install
 
 # Do any other automated setup that you need to do here
+test -e config/zendesk.yml || cp config/zendesk.yml.example config/zendesk.yml
